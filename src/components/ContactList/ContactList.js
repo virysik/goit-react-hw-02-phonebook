@@ -1,23 +1,21 @@
 import { Component } from "react";
+import ContactListElement from "../ContactListElement/ContactListElement";
 
 class ContactList extends Component {
   render() {
     const { contactsArr, onDelete } = this.props;
+
     return (
       <ul>
         {contactsArr.map(({ id, name, number }) => {
           return (
-            <li key={id}>
-              {name}:{number}
-              <button
-                type="button"
-                onClick={() => {
-                  onDelete(id);
-                }}
-              >
-                Delete
-              </button>
-            </li>
+            <ContactListElement
+              key={id}
+              userId={id}
+              userName={name}
+              userNumber={number}
+              onDelete={onDelete}
+            />
           );
         })}
       </ul>
