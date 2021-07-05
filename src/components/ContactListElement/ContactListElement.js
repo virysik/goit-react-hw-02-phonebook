@@ -1,23 +1,32 @@
 import { Component } from "react";
+import { Li, Button } from "./ContactListElement.styles";
+import PropTypes from "prop-types";
 
 class ContactListElement extends Component {
   render() {
-    const { userId, userName, userNumber, onDelete } = this.props;
+    const { contactId, contactName, contactNumber, onDelete } = this.props;
 
     return (
-      <li>
-        {`${userName}: ${userNumber}`}
-        <button
+      <Li>
+        {`${contactName}: ${contactNumber}`}
+        <Button
           type="button"
           onClick={() => {
-            onDelete(userId);
+            onDelete(contactId);
           }}
         >
           Delete
-        </button>
-      </li>
+        </Button>
+      </Li>
     );
   }
 }
 
 export default ContactListElement;
+
+ContactListElement.propTypes = {
+  contactId: PropTypes.string.isRequired,
+  contactName: PropTypes.string.isRequired,
+  contactNumber: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};

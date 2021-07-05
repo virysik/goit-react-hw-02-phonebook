@@ -1,15 +1,21 @@
 import { Component } from "react";
+import { Label, Input } from "./Filter.styles";
+import PropTypes from "prop-types";
 
 class Filter extends Component {
   render() {
     const { onChange } = this.props;
     return (
-      <>
-        <p>Find contacts by name</p>
-        <input onChange={onChange} type="text" name="filter"></input>
-      </>
+      <Label>
+        Find contacts by name:
+        <Input onChange={onChange} type="text" name="filter"></Input>
+      </Label>
     );
   }
 }
 
 export default Filter;
+
+Filter.propTypes = {
+  onChange: PropTypes.func.isRequired,
+};

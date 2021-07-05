@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { Form, Label, Input, Button } from "./ContactForm.styles";
+import PropTypes from "prop-types";
 
 class ContactForm extends Component {
   state = { name: "", number: "" };
@@ -12,9 +14,10 @@ class ContactForm extends Component {
   };
 
   handleSubmit = (e) => {
+    const { onSubmit } = this.props;
     e.preventDefault();
 
-    this.props.onSubmit(this.state);
+    onSubmit(this.state);
     this.resetFormInputs();
   };
 
@@ -27,10 +30,10 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <Form onSubmit={this.handleSubmit}>
+        <Label>
           Name
-          <input
+          <Input
             onChange={this.handleInputChange}
             type="text"
             name="name"
@@ -39,10 +42,10 @@ class ContactForm extends Component {
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             required
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Number
-          <input
+          <Input
             onChange={this.handleInputChange}
             type="tel"
             name="number"
@@ -51,11 +54,15 @@ class ContactForm extends Component {
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
             required
           />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
+        </Label>
+        <Button type="submit">Add contact</Button>
+      </Form>
     );
   }
 }
 
 export default ContactForm;
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

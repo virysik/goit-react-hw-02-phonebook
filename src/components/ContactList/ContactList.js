@@ -1,26 +1,35 @@
 import { Component } from "react";
+import { Ul } from "./ContactList.styles";
 import ContactListElement from "../ContactListElement/ContactListElement";
+import PropTypes from "prop-types";
 
 class ContactList extends Component {
   render() {
     const { contactsArr, onDelete } = this.props;
 
     return (
-      <ul>
+      <Ul>
         {contactsArr.map(({ id, name, number }) => {
           return (
             <ContactListElement
               key={id}
-              userId={id}
-              userName={name}
-              userNumber={number}
+              contactId={id}
+              contactName={name}
+              contactNumber={number}
               onDelete={onDelete}
             />
           );
         })}
-      </ul>
+      </Ul>
     );
   }
 }
 
 export default ContactList;
+
+ContactList.propTypes = {
+  contactsArr: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string.isRequired).isRequired
+  ).isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
