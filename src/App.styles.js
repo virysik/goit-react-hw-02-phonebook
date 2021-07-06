@@ -12,12 +12,16 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
+  display: flex;
+  align-items: center;
   margin-top: 0px;
   margin-bottom: 25px;
   font-size: 40px;
   color: #456173;
 `;
 export const TitleContacts = styled.h2`
+  display: flex;
+  align-items: center;
   margin-top: 0px;
   margin-bottom: 25px;
   font-size: 30px;

@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Li, Button } from "./ContactListElement.styles";
+import { Li, Button, Span } from "./ContactListElement.styles";
+import { IoIosContact } from "react-icons/io";
 import PropTypes from "prop-types";
 
 class ContactListElement extends Component {
@@ -8,6 +9,9 @@ class ContactListElement extends Component {
 
     return (
       <Li>
+        <Span>
+          <IoIosContact />
+        </Span>
         {`${contactName}: ${contactNumber}`}
         <Button
           type="button"

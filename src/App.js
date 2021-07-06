@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { nanoid } from "nanoid";
 import { Container, Title, TitleContacts } from "./App.styles";
+import { TiContacts } from "react-icons/ti";
+import { IoIosContacts } from "react-icons/io";
 import ContactForm from "./components/ContactForm";
 import Filter from "./components/Filter";
 import ContactList from "./components/ContactList";
@@ -64,9 +66,14 @@ class App extends Component {
     const filteredArr = this.getFilteredContact();
     return (
       <Container>
-        <Title>Phonebook</Title>
+        <Title>
+          <TiContacts /> Phonebook
+        </Title>
         <ContactForm onSubmit={this.addContact} />
-        <TitleContacts>Contacts</TitleContacts>
+        <TitleContacts>
+          <IoIosContacts />
+          Contacts
+        </TitleContacts>
         <Filter onChange={this.handleFilterInputChange} />
 
         <ContactList contactsArr={filteredArr} onDelete={this.deleteContact} />

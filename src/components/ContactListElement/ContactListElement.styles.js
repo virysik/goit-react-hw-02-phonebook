@@ -1,14 +1,16 @@
 import styled from "@emotion/styled";
 
 export const Li = styled.li`
-  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 4px;
   color: #1b3c59;
-  font-size: 20px;
+  font-size: 18px;
 `;
 export const Button = styled.button`
-  margin-left: 10px;
-  padding: 6px 8px;
-  width: 70px;
+  margin-left: auto;
+  padding: 8px 16px;
 
   font-size: 14px;
   font-weight: 700;
@@ -23,4 +25,7 @@ export const Button = styled.button`
   &:focus {
     background-color: #456173;
   }
+`;
+export const Span = styled.span`
+  margin-right: 20px;
 `;
